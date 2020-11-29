@@ -74,6 +74,8 @@ Then run the Flask app:
 python app.py
 ```
 
+You can pre-load all the data in the csv into the database module by sending an empty POST request to `http://localhost:3000/load_csv_into_mongodb`
+
 ## How it works
 
 visit `http://127.0.0.1:3000` or `http://localhost:3000` and you should be able to see the table component created in React.
@@ -86,3 +88,57 @@ Delete student by clicking the red 'D' button in the most right cell of each rec
 Update student by clicking the yellow 'E' button next to 'D' button. That should open a new form with the targeted student data preloaded in the form fields. Change desired fields and press 'Send' to save the new student data.
 
 You can sort the table by any field you desire. Students with the same field values (i.e. name, email, ...) will be sorted according to their grades in an ascending order. If the sorting field is the grade itself, students with same grades will be sorted according to their names in an ascending order.
+
+## The API
+
+List all students:
+
+- url:
+  - `http://localhost:3000/students`
+
+- method:
+  - GET
+
+Create a new Student:
+
+- url:
+  - `http://localhost:3000/students`
+
+- method:
+  - POST
+
+- body:
+  - {
+          "name": "",
+          "email": "",
+          "age": 0,
+          "grade": "",
+          "number": "",
+          "address": ""
+        }
+
+Delete a student:
+
+- url:
+  - `http://localhost:3000/students/<id>`
+
+- method:
+  - DELETE
+
+Edit student:
+
+- url:
+  - `http://localhost:3000/students/<id>`
+
+- method:
+  - PUT
+
+- body:
+  - {
+          "name": "",
+          "email": "",
+          "age": 0,
+          "grade": "",
+          "number": "",
+          "address": ""
+        }

@@ -78,7 +78,11 @@ python app.py
 
 visit `http://127.0.0.1:3000` or `http://localhost:3000` and you should be able to see the table component created in React.
 To add a new student to the list, hist the Add button down to the right of the screen. A form component loads with student model form to fill all necessary student data.
+
 After pressing the 'Send' button, the student should be added to your list. Try refreshing the page and you should see the newly added record now in the table.
+
 Delete student by clicking the red 'D' button in the most right cell of each record.
+
 Update student by clicking the yellow 'E' button next to 'D' button. That should open a new form with the targeted student data preloaded in the form fields. Change desired fields and press 'Send' to save the new student data.
+
 You can sort the table by any field you desire. Students with the same field values (i.e. name, email, ...) will be sorted according to their grades in an ascending order. If the sorting field is the grade itself, students with same grades will be sorted according to their names in an ascending order.

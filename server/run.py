@@ -16,13 +16,20 @@ app.config['MONGODB_SETTINGS'] = {
 }
 initialize_db(app)
 
+@app.route('/load_csv_into_mongodb', methods=['POST'])
+def load_csv_into_mongodb():
+    data = json.load(open("data.json"))
+    for i in data:
+        student = Student(**i).save()
+    return 'data loaded successfully', 200
+
 @app.route('/')
-@app.route('/students')
+@app.route('/students', methods=['POST'])
 def get_students():
     students = json.loads(Student.objects().to_json())
     return render_template("datatable.html", data=students)
 
-@app.route('/students/get')
+@app.route('/students/get', methods=['POST'])
 def get_all_students():
     students = jsonify(json.loads(Student.objects().to_json()))
     students.headers.add('Access-Control-Allow-Origin', '*')
